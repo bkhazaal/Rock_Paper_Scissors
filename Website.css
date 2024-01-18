@@ -6,8 +6,7 @@
 
 .bottom_segment {
     background-color: gainsboro;
-    padding: 30px;
-    padding-bottom: 200px;
+    margin: auto;
 }
 
 nav {
@@ -68,7 +67,17 @@ nav {
 }
 
 .result {
-    text-align: center;
     font-family: sans-serif;
+    display: flex;
+    justify-content: center;
+    font-size: 60px;
+    padding: 100px;
+}
+
+.score {
+    font-family: sans-serif;
+    display: flex;
     font-size: 30px;
+    justify-content: center;
+
 }

@@ -4,8 +4,6 @@ const options = ["rock", "paper", "scissors"];
 
 function CompTurn() {
   let Index = Math.floor(Math.random() * 3);
-  console.log("computer", Index);
-  console.log("random number", Math.floor(Math.random() * 3));
   return options[Index];
 }
 
@@ -18,29 +16,29 @@ const paper = document.querySelector(".paper");
 const scissors = document.querySelector(".scissors");
 
 rock.addEventListener("click", function (e) {
-  console.log("click");
-  let playerSelection = e.target.dataset.choice;
+  let playerSelection = "rock";
   let computerSelection = CompTurn();
   playRound(playerSelection, computerSelection);
+  displayPlayerAndComputerSelection(playerSelection);
 });
 
 paper.addEventListener("click", function (e) {
-  console.log("click");
-  let playerSelection = e.target.dataset.choice;
+  let playerSelection = "paper";
   let computerSelection = CompTurn();
   playRound(playerSelection, computerSelection);
+  displayPlayerAndComputerSelection(playerSelection);
 });
 
 scissors.addEventListener("click", function (e) {
-  console.log("click");
-  let playerSelection = e.target.dataset.choice;
+  let playerSelection = "scissors";
   let computerSelection = CompTurn();
   playRound(playerSelection, computerSelection);
+  displayPlayerAndComputerSelection(playerSelection);
 });
 
 function playRound(playerSelection, computerSelection) {
-  console.log("Computer Selection", computerSelection);
-  console.log("Computer Selection", playerSelection);
+  console.log("Player Selection:", playerSelection);
+  console.log("Computer Selection:", computerSelection);
   if (
     (playerSelection === "rock" && computerSelection === "paper") ||
     (playerSelection === "paper" && computerSelection === "scissors") ||
@@ -48,30 +46,38 @@ function playRound(playerSelection, computerSelection) {
   ) {
     ComputerScore++;
     result.textContent = "I WON THIS ROUND";
-    console.log("Win");
+    score.textContent = `${PlayerScore} | ${ComputerScore}`;
   } else if (
     (playerSelection === "rock" && computerSelection === "scissors") ||
     (playerSelection === "paper" && computerSelection === "rock") ||
     (playerSelection === "scissors" && computerSelection === "paper")
   ) {
     PlayerScore++;
-    result.textContent = "I LOST THIS ROUND (good game I guess....)";
-    console.log("Lose");
+    result.textContent = "YOU WON THIS ROUND";
+    score.textContent = `${PlayerScore} | ${ComputerScore}`;
   } else {
-    result.textContent = "It appears we have tied";
-    console.log("Tie");
+    result.textContent = "WE TIED THIS ROUND";
+    score.textContent = `${PlayerScore} | ${ComputerScore}`;
   }
   if (PlayerScore === 5 || ComputerScore === 5) {
     GameOver();
+    PlayerScore = 0;
+    ComputerScore = 0;
   }
 }
 
 function GameOver() {
   if (PlayerScore > ComputerScore) {
-    output.textContent = "GOOD GAME BRO (you won btw)";
+    result.textContent = "YOU WON BEST OUTTA 5";
   } else {
-    output.textContent = "What did u expect, IM A COMPUTER, I ALWAYS WIN";
+    result.textContent = "I WON BEST OUTTA 5";
   }
+}
+function displayPlayerAndComputerSelection(playerSelection) {
+  let computerSelection = CompTurn();
+
+  console.log("Player Score", PlayerScore);
+  console.log("Computer Score", ComputerScore);
 }
 
 function resetGame() {
