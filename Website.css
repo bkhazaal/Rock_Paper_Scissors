@@ -7,7 +7,7 @@
 .bottom_segment {
     background-color: gainsboro;
     padding: 30px;
-    padding-bottom: 100px;
+    padding-bottom: 200px;
 }
 
 nav {
@@ -44,15 +44,6 @@ nav {
     color: white;
 }
 
-.paragraph {
-    float: left;
-    display: flex;
-    margin-top: 40px;
-    font-size: 20px;
-    font-family: sans-serif;
-    line-height: 30px;
-}
-
 .play_area{
     display: flex;
     flex-direction: row;
@@ -63,10 +54,7 @@ nav {
 }
 
 .buttons{
-    font-family: 'Oxanium', sans-serif;
     background-color: white;
-    border: solid white 1px;
-    border-radius: 10%;
     display: flex;
     height: 15rem;
     width: 15rem;
@@ -77,10 +65,10 @@ nav {
 .img{
     height: 14rem;
     width: 14rem;
-    filter: grayscale(100%);
 }
 
-p {
+.result {
     text-align: center;
-    font-size: 67px;
+    font-family: sans-serif;
+    font-size: 30px;
 }
