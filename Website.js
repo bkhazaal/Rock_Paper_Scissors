@@ -2,6 +2,10 @@ let PlayerScore = 0;
 let ComputerScore = 0;
 const options = ["rock", "paper", "scissors"];
 
+function OpeningMessage() {
+  result.textContent = "CLICK TO PLAY";
+}
+
 function CompTurn() {
   let Index = Math.floor(Math.random() * 3);
   return options[Index];
@@ -79,6 +83,8 @@ function displayPlayerAndComputerSelection(playerSelection) {
   console.log("Player Score", PlayerScore);
   console.log("Computer Score", ComputerScore);
 }
+
+OpeningMessage();
 
 function resetGame() {
   location.reload();
